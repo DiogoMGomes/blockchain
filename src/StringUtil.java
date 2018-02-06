@@ -1,3 +1,5 @@
+import com.google.gson.GsonBuilder;
+
 import java.security.MessageDigest;
 
 public class StringUtil {
@@ -16,5 +18,13 @@ public class StringUtil {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String getJason(Object o) {
+        return new GsonBuilder().setPrettyPrinting().create().toJson(o);
+    }
+
+    public static String getDifficulty(int difficulty) {
+        return new String(new char[difficulty]).replace('\0', '0');
     }
 }
